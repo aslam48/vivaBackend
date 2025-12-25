@@ -1,0 +1,1398 @@
+{
+    "info": {
+        "_postman_id": "vivafemini-api-collection",
+        "name": "VivaFemini Backend API",
+        "description": "Complete API documentation for VivaFemini cycle tracking application",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Health Check",
+            "item": [
+                {
+                    "name": "Get Health Status",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/health",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "health"
+                            ]
+                        },
+                        "description": "Check API health status"
+                    }
+                },
+                {
+                    "name": "Get Hello",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                ""
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Users",
+            "item": [
+                {
+                    "name": "Create User",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"name\": \"Emmanuelle\",\n  \"email\": \"emmanuelle@example.com\",\n  \"phone\": \"+1234567890\",\n  \"address\": \"123 Main St\",\n  \"profilePicture\": \"https://via.placeholder.com/150\",\n  \"averageCycleLength\": 28\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/users",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "users"
+                            ]
+                        },
+                        "description": "Create a new user"
+                    }
+                },
+                {
+                    "name": "Get All Users",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/users",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "users"
+                            ]
+                        },
+                        "description": "Get all users"
+                    }
+                },
+                {
+                    "name": "Get User by ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/users/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "users",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "694d2f6e08251ee7812ceef6"
+                                }
+                            ]
+                        },
+                        "description": "Get user by ID"
+                    }
+                },
+                {
+                    "name": "Update User",
+                    "request": {
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"name\": \"Emmanuelle Updated\",\n  \"averageCycleLength\": 30\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/users/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "users",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "694d2f6e08251ee7812ceef6"
+                                }
+                            ]
+                        },
+                        "description": "Update user (partial update)"
+                    }
+                },
+                {
+                    "name": "Delete User",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/users/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "users",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "694d2f6e08251ee7812ceef6"
+                                }
+                            ]
+                        },
+                        "description": "Delete user by ID"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Cycles",
+            "item": [
+                {
+                    "name": "Create Cycle",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"userId\": \"694d2f6e08251ee7812ceef6\",\n  \"startDate\": \"2025-12-05T00:00:00.000Z\",\n  \"periodStartDate\": \"2025-12-05T00:00:00.000Z\",\n  \"periodEndDate\": \"2025-12-10T00:00:00.000Z\",\n  \"cycleLength\": 28\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/cycles",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "cycles"
+                            ]
+                        },
+                        "description": "Create a new cycle"
+                    }
+                },
+                {
+                    "name": "Get All Cycles",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/cycles?userId=694d2f6e08251ee7812ceef6",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "cycles"
+                            ],
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "694d2f6e08251ee7812ceef6",
+                                    "description": "Optional: Filter by user ID"
+                                }
+                            ]
+                        },
+                        "description": "Get all cycles (optionally filtered by userId)"
+                    }
+                },
+                {
+                    "name": "Get Current Cycle",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/cycles/current?userId=694d2f6e08251ee7812ceef6",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "cycles",
+                                "current"
+                            ],
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "694d2f6e08251ee7812ceef6",
+                                    "description": "Required: User ID"
+                                }
+                            ]
+                        },
+                        "description": "Get current active cycle for a user"
+                    }
+                },
+                {
+                    "name": "Get Calendar Data",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/cycles/calendar?userId=694d2f6e08251ee7812ceef6&month=12&year=2025",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "cycles",
+                                "calendar"
+                            ],
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "694d2f6e08251ee7812ceef6",
+                                    "description": "Required: User ID"
+                                },
+                                {
+                                    "key": "month",
+                                    "value": "12",
+                                    "description": "Required: Month (1-12)"
+                                },
+                                {
+                                    "key": "year",
+                                    "value": "2025",
+                                    "description": "Required: Year"
+                                }
+                            ]
+                        },
+                        "description": "Get calendar data with highlighted dates (period, fertile window, ovulation)"
+                    }
+                },
+                {
+                    "name": "Get Cycle by ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/cycles/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "cycles",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "694d2f6f08251ee7812ceef9"
+                                }
+                            ]
+                        },
+                        "description": "Get cycle by ID"
+                    }
+                },
+                {
+                    "name": "Get Cycle Predictions",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/cycles/:id/predictions",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "cycles",
+                                ":id",
+                                "predictions"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "694d2f6f08251ee7812ceef9"
+                                }
+                            ]
+                        },
+                        "description": "Get cycle predictions (fertile window, ovulation window)"
+                    }
+                },
+                {
+                    "name": "Update Cycle",
+                    "request": {
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"periodEndDate\": \"2025-12-11T00:00:00.000Z\",\n  \"cycleLength\": 29\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/cycles/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "cycles",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "694d2f6f08251ee7812ceef9"
+                                }
+                            ]
+                        },
+                        "description": "Update cycle (partial update)"
+                    }
+                },
+                {
+                    "name": "Delete Cycle",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/cycles/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "cycles",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "694d2f6f08251ee7812ceef9"
+                                }
+                            ]
+                        },
+                        "description": "Delete cycle by ID"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Daily Logs",
+            "item": [
+                {
+                    "name": "Create Daily Log",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"userId\": \"694d2f6e08251ee7812ceef6\",\n  \"date\": \"2025-12-25T00:00:00.000Z\",\n  \"cycleDay\": 21,\n  \"physicalPainSymptoms\": [\"Bloating\", \"Cramps\"],\n  \"moodMentalStates\": [\"Happy\", \"Cravings\"],\n  \"flowIntensity\": 3,\n  \"periodIndicators\": [\"Spotting\"],\n  \"sexualHealthIndicators\": [],\n  \"notes\": \"Feeling good today\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/daily-logs",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "daily-logs"
+                            ]
+                        },
+                        "description": "Create a new daily log entry\n\n**Physical Pain Symptoms:** Cramps, Diarrhoea, Fatigue, Headache, Nausea, Breast tenderness, Abdominal pain, Pelvic pain, Lower back pain, Appetite changes, Water retention\n\n**Mood & Mental States:** Happy, Neutral, Sad, Low Motivation, Mood swings, Irritability, Cravings, Tearfulness, Difficulty Concentrating\n\n**Period Indicators:** Spotting, heavier flow, lighter flow, Vaginal Dryness\n\n**Sexual Health Indicators:** Increased sex drive, Decreased sex drive, Vaginal discharge"
+                    }
+                },
+                {
+                    "name": "Get All Daily Logs",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/daily-logs?userId=694d2f6e08251ee7812ceef6",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "daily-logs"
+                            ],
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "694d2f6e08251ee7812ceef6",
+                                    "description": "Optional: Filter by user ID"
+                                }
+                            ]
+                        },
+                        "description": "Get all daily logs (optionally filtered by userId)"
+                    }
+                },
+                {
+                    "name": "Get Daily Logs by Date Range",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/daily-logs/date-range?userId=694d2f6e08251ee7812ceef6&startDate=2025-12-01&endDate=2025-12-31",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "daily-logs",
+                                "date-range"
+                            ],
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "694d2f6e08251ee7812ceef6",
+                                    "description": "Required: User ID"
+                                },
+                                {
+                                    "key": "startDate",
+                                    "value": "2025-12-01",
+                                    "description": "Required: Start date (YYYY-MM-DD)"
+                                },
+                                {
+                                    "key": "endDate",
+                                    "value": "2025-12-31",
+                                    "description": "Required: End date (YYYY-MM-DD)"
+                                }
+                            ]
+                        },
+                        "description": "Get daily logs within a date range"
+                    }
+                },
+                {
+                    "name": "Get Symptom Trends",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/daily-logs/trends?userId=694d2f6e08251ee7812ceef6&startDate=2025-12-01&endDate=2025-12-31",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "daily-logs",
+                                "trends"
+                            ],
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "694d2f6e08251ee7812ceef6",
+                                    "description": "Required: User ID"
+                                },
+                                {
+                                    "key": "startDate",
+                                    "value": "2025-12-01",
+                                    "description": "Optional: Start date (YYYY-MM-DD)"
+                                },
+                                {
+                                    "key": "endDate",
+                                    "value": "2025-12-31",
+                                    "description": "Optional: End date (YYYY-MM-DD)"
+                                }
+                            ]
+                        },
+                        "description": "Get symptom trends and frequency analysis"
+                    }
+                },
+                {
+                    "name": "Get Most Frequent Symptom",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/daily-logs/most-frequent?userId=694d2f6e08251ee7812ceef6&startDate=2025-12-01&endDate=2025-12-31",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "daily-logs",
+                                "most-frequent"
+                            ],
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "694d2f6e08251ee7812ceef6",
+                                    "description": "Required: User ID"
+                                },
+                                {
+                                    "key": "startDate",
+                                    "value": "2025-12-01",
+                                    "description": "Optional: Start date (YYYY-MM-DD)"
+                                },
+                                {
+                                    "key": "endDate",
+                                    "value": "2025-12-31",
+                                    "description": "Optional: End date (YYYY-MM-DD)"
+                                }
+                            ]
+                        },
+                        "description": "Get most frequent symptom for a user"
+                    }
+                },
+                {
+                    "name": "Get Daily Log by ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/daily-logs/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "daily-logs",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "694d2f7208251ee7812ceefb"
+                                }
+                            ]
+                        },
+                        "description": "Get daily log by ID"
+                    }
+                },
+                {
+                    "name": "Update Daily Log",
+                    "request": {
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"flowIntensity\": 5,\n  \"notes\": \"Updated notes\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/daily-logs/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "daily-logs",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "694d2f7208251ee7812ceefb"
+                                }
+                            ]
+                        },
+                        "description": "Update daily log (partial update)"
+                    }
+                },
+                {
+                    "name": "Delete Daily Log",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/daily-logs/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "daily-logs",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "694d2f7208251ee7812ceefb"
+                                }
+                            ]
+                        },
+                        "description": "Delete daily log by ID"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Activities",
+            "item": [
+                {
+                    "name": "Create Activity",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"userId\": \"694d2f6e08251ee7812ceef6\",\n  \"date\": \"2025-12-25T00:00:00.000Z\",\n  \"activityName\": \"Pilates\",\n  \"duration\": 30,\n  \"notes\": \"Great session\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/activities",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "activities"
+                            ]
+                        },
+                        "description": "Log a new activity"
+                    }
+                },
+                {
+                    "name": "Get All Activities",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/activities?userId=694d2f6e08251ee7812ceef6",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "activities"
+                            ],
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "694d2f6e08251ee7812ceef6",
+                                    "description": "Optional: Filter by user ID"
+                                }
+                            ]
+                        },
+                        "description": "Get all activities (optionally filtered by userId)"
+                    }
+                },
+                {
+                    "name": "Get Activity by ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/activities/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "activities",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "694d2f7508251ee7812cef0f"
+                                }
+                            ]
+                        },
+                        "description": "Get activity by ID"
+                    }
+                },
+                {
+                    "name": "Update Activity",
+                    "request": {
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"duration\": 45,\n  \"notes\": \"Updated notes\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/activities/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "activities",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "694d2f7508251ee7812cef0f"
+                                }
+                            ]
+                        },
+                        "description": "Update activity (partial update)"
+                    }
+                },
+                {
+                    "name": "Delete Activity",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/activities/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "activities",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "694d2f7508251ee7812cef0f"
+                                }
+                            ]
+                        },
+                        "description": "Delete activity by ID"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Pregnancy Tests",
+            "item": [
+                {
+                    "name": "Create Pregnancy Test",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"userId\": \"694d2f6e08251ee7812ceef6\",\n  \"date\": \"2025-12-25T00:00:00.000Z\",\n  \"result\": \"not_taken\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/pregnancy-tests",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "pregnancy-tests"
+                            ]
+                        },
+                        "description": "Log a pregnancy test result\n\n**Result Values:** `positive`, `negative`, `faint_line`, `not_taken`"
+                    }
+                },
+                {
+                    "name": "Get All Pregnancy Tests",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/pregnancy-tests?userId=694d2f6e08251ee7812ceef6",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "pregnancy-tests"
+                            ],
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "694d2f6e08251ee7812ceef6",
+                                    "description": "Optional: Filter by user ID"
+                                }
+                            ]
+                        },
+                        "description": "Get all pregnancy tests (optionally filtered by userId)"
+                    }
+                },
+                {
+                    "name": "Get Pregnancy Test by ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/pregnancy-tests/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "pregnancy-tests",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "694d2f7608251ee7812cef11"
+                                }
+                            ]
+                        },
+                        "description": "Get pregnancy test by ID"
+                    }
+                },
+                {
+                    "name": "Update Pregnancy Test",
+                    "request": {
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"result\": \"negative\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/pregnancy-tests/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "pregnancy-tests",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "694d2f7608251ee7812cef11"
+                                }
+                            ]
+                        },
+                        "description": "Update pregnancy test (partial update)"
+                    }
+                },
+                {
+                    "name": "Delete Pregnancy Test",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/pregnancy-tests/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "pregnancy-tests",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "694d2f7608251ee7812cef11"
+                                }
+                            ]
+                        },
+                        "description": "Delete pregnancy test by ID"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Tips",
+            "item": [
+                {
+                    "name": "Create Tip",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"title\": \"Day 1 Tip\",\n  \"content\": \"Understand your cycle and take care during peak days.\",\n  \"category\": \"general\",\n  \"cycleDay\": 1,\n  \"cyclePhase\": \"menstrual\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/tips",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "tips"
+                            ]
+                        },
+                        "description": "Create a new tip\n\n**Cycle Phases:** `menstrual`, `follicular`, `ovulation`, `luteal`"
+                    }
+                },
+                {
+                    "name": "Get All Tips",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/tips",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "tips"
+                            ]
+                        },
+                        "description": "Get all tips"
+                    }
+                },
+                {
+                    "name": "Get Tips by Cycle Day",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/tips/cycle-day/:day",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "tips",
+                                "cycle-day",
+                                ":day"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "day",
+                                    "value": "1"
+                                }
+                            ]
+                        },
+                        "description": "Get tips for a specific cycle day"
+                    }
+                },
+                {
+                    "name": "Get Tips by Phase",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/tips/phase/:phase",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "tips",
+                                "phase",
+                                ":phase"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "phase",
+                                    "value": "menstrual"
+                                }
+                            ]
+                        },
+                        "description": "Get tips by cycle phase\n\n**Cycle Phases:** `menstrual`, `follicular`, `ovulation`, `luteal`"
+                    }
+                },
+                {
+                    "name": "Get Tip by ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/tips/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "tips",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "694d2f7608251ee7812cef13"
+                                }
+                            ]
+                        },
+                        "description": "Get tip by ID"
+                    }
+                },
+                {
+                    "name": "Update Tip",
+                    "request": {
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"content\": \"Updated content\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/tips/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "tips",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "694d2f7608251ee7812cef13"
+                                }
+                            ]
+                        },
+                        "description": "Update tip (partial update)"
+                    }
+                },
+                {
+                    "name": "Delete Tip",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/tips/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "tips",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "694d2f7608251ee7812cef13"
+                                }
+                            ]
+                        },
+                        "description": "Delete tip by ID"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Articles",
+            "item": [
+                {
+                    "name": "Create Article",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"title\": \"5 Ways to Reduce Stress During Your Cycle\",\n  \"content\": \"Learn effective strategies to manage stress and maintain balance throughout your menstrual cycle.\",\n  \"imageUrl\": \"https://via.placeholder.com/300x200\",\n  \"category\": \"stress\",\n  \"publishedAt\": \"2025-12-25T00:00:00.000Z\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/articles",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "articles"
+                            ]
+                        },
+                        "description": "Create a new article"
+                    }
+                },
+                {
+                    "name": "Get All Articles",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/articles",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "articles"
+                            ]
+                        },
+                        "description": "Get all articles"
+                    }
+                },
+                {
+                    "name": "Get Recommended Articles",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/articles/recommended?userId=694d2f6e08251ee7812ceef6&limit=3",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "articles",
+                                "recommended"
+                            ],
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "694d2f6e08251ee7812ceef6",
+                                    "description": "Optional: User ID for personalized recommendations"
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "3",
+                                    "description": "Optional: Limit number of articles (default: 3)"
+                                }
+                            ]
+                        },
+                        "description": "Get recommended articles for a user"
+                    }
+                },
+                {
+                    "name": "Get Article by ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/articles/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "articles",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "694d2f7708251ee7812cef1b"
+                                }
+                            ]
+                        },
+                        "description": "Get article by ID"
+                    }
+                },
+                {
+                    "name": "Update Article",
+                    "request": {
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"title\": \"Updated Title\",\n  \"category\": \"wellness\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/articles/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "articles",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "694d2f7708251ee7812cef1b"
+                                }
+                            ]
+                        },
+                        "description": "Update article (partial update)"
+                    }
+                },
+                {
+                    "name": "Delete Article",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/articles/:id",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "articles",
+                                ":id"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "id",
+                                    "value": "694d2f7708251ee7812cef1b"
+                                }
+                            ]
+                        },
+                        "description": "Delete article by ID"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Health Reports",
+            "item": [
+                {
+                    "name": "Get Monthly Report",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/health-reports/monthly?userId=694d2f6e08251ee7812ceef6&month=12&year=2025",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "health-reports",
+                                "monthly"
+                            ],
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "694d2f6e08251ee7812ceef6",
+                                    "description": "Required: User ID"
+                                },
+                                {
+                                    "key": "month",
+                                    "value": "12",
+                                    "description": "Required: Month (1-12)"
+                                },
+                                {
+                                    "key": "year",
+                                    "value": "2025",
+                                    "description": "Required: Year"
+                                }
+                            ]
+                        },
+                        "description": "Get comprehensive monthly health report including:\n- Cycle summary\n- Symptom frequency\n- Flow pattern\n- Historical logs\n- Summary text\n- Tips"
+                    }
+                },
+                {
+                    "name": "Get Cycle Report",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/health-reports/cycle/:cycleId?cycleId=694d2f6f08251ee7812ceef9",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "health-reports",
+                                "cycle",
+                                ":cycleId"
+                            ],
+                            "query": [
+                                {
+                                    "key": "cycleId",
+                                    "value": "694d2f6f08251ee7812ceef9",
+                                    "description": "Required: Cycle ID (query parameter)"
+                                }
+                            ],
+                            "variable": [
+                                {
+                                    "key": "cycleId",
+                                    "value": "694d2f6f08251ee7812ceef9"
+                                }
+                            ]
+                        },
+                        "description": "Get cycle-specific health report summary. Note: Uses query parameter despite path parameter in route."
+                    }
+                },
+                {
+                    "name": "Get Symptom Frequency",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/health-reports/symptoms?userId=694d2f6e08251ee7812ceef6&startDate=2025-12-01&endDate=2025-12-31",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "health-reports",
+                                "symptoms"
+                            ],
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "694d2f6e08251ee7812ceef6",
+                                    "description": "Required: User ID"
+                                },
+                                {
+                                    "key": "startDate",
+                                    "value": "2025-12-01",
+                                    "description": "Required: Start date (YYYY-MM-DD)"
+                                },
+                                {
+                                    "key": "endDate",
+                                    "value": "2025-12-31",
+                                    "description": "Required: End date (YYYY-MM-DD)"
+                                }
+                            ]
+                        },
+                        "description": "Get symptom frequency data (percentages for physical pain, mood/mental, digestion/appetite, sexual health)"
+                    }
+                },
+                {
+                    "name": "Get Flow Pattern",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/health-reports/flow-pattern?userId=694d2f6e08251ee7812ceef6&startDate=2025-12-01&endDate=2025-12-31",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "health-reports",
+                                "flow-pattern"
+                            ],
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "694d2f6e08251ee7812ceef6",
+                                    "description": "Required: User ID"
+                                },
+                                {
+                                    "key": "startDate",
+                                    "value": "2025-12-01",
+                                    "description": "Required: Start date (YYYY-MM-DD)"
+                                },
+                                {
+                                    "key": "endDate",
+                                    "value": "2025-12-31",
+                                    "description": "Required: End date (YYYY-MM-DD)"
+                                }
+                            ]
+                        },
+                        "description": "Get flow pattern graph data (date and intensity pairs)"
+                    }
+                }
+            ]
+        }
+    ],
+    "variable": [
+        {
+            "key": "baseUrl",
+            "value": "http://localhost:3000",
+            "type": "string"
+        }
+    ]
+}
